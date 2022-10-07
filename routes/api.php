@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+// //     return $request->user();
+// // });
+
+
+// This line creates all the routes for the show controller
+Route::apiResource('/shows', ShowController::class);
+
+// This line specifies and creates which routes are used for the service controller
+Route::resource('/services', ServiceController::class)->only(['index','show']);
