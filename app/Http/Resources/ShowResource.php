@@ -17,13 +17,14 @@ class ShowResource extends JsonResource
         return [
 
         'id' => $this->id,
-        'title' => $this->genre,
-        'genre'=>$this->synopsis,
-        'synopsis'=>$this->user_rating,
-        'user_rating'=>$this->network,
-        'network'=>$this->creator,
-        'creator'=>$this->seasons,
-        'seasons'=>$this->src
+        'title' => $this->title,
+        'genre'=>$this->genre,
+        'synopsis'=>$this->synopsis,
+        'user_rating'=>$this->user_rating,
+        'network'=>$this->network,
+        'creator'=>$this->creator,
+        'seasons'=>$this->seasons,
+        'src'=>$this->src
 
 
         

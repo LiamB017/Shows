@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('shows', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('genre');
-            $table->text('synopsis');
-            $table->integer('user_rating');
-            $table->string('network');
-            $table->string('creator');
-            $table->integer('seasons');
-            $table->string('src');
+          
+            $table->string('title')->default('The Sopranos');
+            $table->string('genre')->default('drama');
+            $table->string('synopsis')->default('MIMIMI');
+            $table->integer('user_rating')->default('5');
+            $table->string('network')->default('HBO');
+            $table->string('creator')->default('David Simon');
+            $table->integer('seasons')->default('1');
+            $table->string('src')->default('blah');
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Show;
 use Illuminate\Http\Request;
+use App\Http\Resources\ShowResource;
 use App\Http\Resources\ShowCollection;
 
 class ShowController extends Controller
@@ -28,7 +29,11 @@ class ShowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $show = Show::create($request->only([
+            'title', 'genre', 'synopsis', 'user_rating', 'network', 'creator', 'seasons', 'src'
+        ]));
+
+        return new ShowResource($show);
     }
 
     /**
