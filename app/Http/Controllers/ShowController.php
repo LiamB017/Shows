@@ -30,7 +30,16 @@ class ShowController extends Controller
     public function store(Request $request)
     {
         $show = Show::create($request->only([
-            'title', 'genre', 'synopsis', 'user_rating', 'network', 'creator', 'seasons', 'src'
+
+            'title',
+            'genre',
+            'synopsis',
+            'user_rating',
+            'network' ,
+            'creator',
+            'seasons',
+            'src',
+            
         ]));
 
         return new ShowResource($show);
