@@ -29,6 +29,8 @@ class ShowController extends Controller
      */
     public function store(Request $request)
     {
+
+// Store created new show 
         $show = Show::create($request->only([
 
             'title',
@@ -54,6 +56,8 @@ class ShowController extends Controller
     public function show(Show $show)
     {
         //
+           // The $show passed in is converted to JSON by the ShowResource and returned when this function is run
+        return new ShowResource($show);
     }
 
     /**
@@ -66,6 +70,19 @@ class ShowController extends Controller
     public function update(Request $request, Show $show)
     {
         //
+        // Update the specified show 
+        $show->update($request->only([
+            'title',
+            'genre',
+            'synopsis',
+            'user_rating',
+            'network' ,
+            'creator',
+            'seasons',
+            'src'
+        ]));
+     
+        return new ShowResource($show);
     }
 
     /**
