@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Show;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Resources\ShowResource;
 use App\Http\Resources\ShowCollection;
 
@@ -94,5 +95,8 @@ class ShowController extends Controller
     public function destroy(Show $show)
     {
         //
+
+        $show->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }
