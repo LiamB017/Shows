@@ -1,0 +1,251 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Show API",
+        "description": "My Show API",
+        "contact": {
+            "email": "N00202070@iadt.ie"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "2.0.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Home page",
+                "responses": {
+                    "default": {
+                        "description": "Welcome page"
+                    }
+                }
+            }
+        },
+        "/api/shows": {
+            "get": {
+                "tags": [
+                    "Shows"
+                ],
+                "summary": "Display a listing of the show resource.",
+                "description": "Displays all the shows",
+                "operationId": "71aa465375ef08cb18fe0f645b9028c3",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation, Returns a list of Shows in JSON format"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Shows"
+                ],
+                "summary": "Create a new Show",
+                "description": "Stores the Show in the Database",
+                "operationId": "service",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "genre",
+                                    "synopsis",
+                                    "user_rating",
+                                    "network",
+                                    "creator",
+                                    "seasons",
+                                    "src"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample Title"
+                                    },
+                                    "genre": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample Genre"
+                                    },
+                                    "synopsis": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "A long description about this great show"
+                                    },
+                                    "user_rating": {
+                                        "type": "integer",
+                                        "format": "string",
+                                        "example": "2"
+                                    },
+                                    "network": {
+                                        "type": "string",
+                                        "format": "integer",
+                                        "example": "examplenetwork"
+                                    },
+                                    "creator": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Me"
+                                    },
+                                    "seasons": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "src": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "blah"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/shows/{id}": {
+            "get": {
+                "tags": [
+                    "Shows"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "Gets a show by ID",
+                "operationId": "4ee4feb2653db6e08fe692f689105bf6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Show id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Shows"
+                ],
+                "summary": "Update a Show",
+                "description": "Update Show",
+                "operationId": "put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Updatea Show",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "204"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Shows"
+                ],
+                "summary": "Delete a Show",
+                "description": "Delete Show",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of a Show",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "204"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
