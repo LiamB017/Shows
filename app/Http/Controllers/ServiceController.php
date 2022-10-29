@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the show resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,7 +18,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created service resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -29,7 +29,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified service resource.
      *
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
@@ -40,7 +40,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified service resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Service  $service
@@ -52,7 +52,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified service resource from storage.
      *
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response

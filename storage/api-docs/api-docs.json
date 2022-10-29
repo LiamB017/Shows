@@ -28,7 +28,7 @@
                 "tags": [
                     "Shows"
                 ],
-                "summary": "Display a listing of the show resource.",
+                "summary": "Display a listing of the show resource in swagger API documentation.",
                 "description": "Displays all the shows",
                 "operationId": "71aa465375ef08cb18fe0f645b9028c3",
                 "responses": {
@@ -140,7 +140,7 @@
                 "tags": [
                     "Shows"
                 ],
-                "summary": "Display the specified resource.",
+                "summary": "Display the specified show resource.",
                 "description": "Gets a show by ID",
                 "operationId": "4ee4feb2653db6e08fe692f689105bf6",
                 "parameters": [
@@ -177,23 +177,86 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Updatea Show",
+                        "description": "Show id",
                         "required": true,
                         "schema": {
                             "type": "integer"
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "title",
+                                    "genre",
+                                    "synopsis",
+                                    "user_rating",
+                                    "network",
+                                    "creator",
+                                    "seasons",
+                                    "src"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample Title"
+                                    },
+                                    "genre": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample Genre"
+                                    },
+                                    "synopsis": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "A long description about this great show"
+                                    },
+                                    "user_rating": {
+                                        "type": "integer",
+                                        "format": "string",
+                                        "example": "2"
+                                    },
+                                    "network": {
+                                        "type": "string",
+                                        "format": "integer",
+                                        "example": "examplenetwork"
+                                    },
+                                    "creator": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Me"
+                                    },
+                                    "seasons": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "src": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "blah"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
-                    "204": {
+                    "200": {
                         "description": "Success",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "status_code": {
+                                        "status": {
                                             "type": "integer",
-                                            "example": "204"
+                                            "example": ""
                                         },
                                         "data": {
                                             "type": "object"
