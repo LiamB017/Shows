@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// This Show model allows for interaction with the show table in the shows database, specifically by allowing for CRUD functionality
+
+
 class Show extends Model
 {
     use HasFactory;
