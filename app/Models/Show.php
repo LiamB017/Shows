@@ -14,6 +14,13 @@ class Show extends Model
 
 // Fillable property is needed as eloquent models are protected against mass assignment vulnerabilities by default
     protected $fillable = ['title','genre','synopsis','user_rating','network','creator','seasons','src'];
+
+public function network()
+{
+    return $this->belongsTo(Network::class);
 }
+
+}
+
 
 
