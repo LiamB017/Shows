@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Network;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class NetworkSeeder extends Seeder
 {
@@ -14,6 +15,9 @@ class NetworkSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Network::factory()
+        ->times(3)
+        ->hasShows(4)
+        ->create();
     }
 }

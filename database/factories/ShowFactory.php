@@ -21,7 +21,6 @@ class ShowFactory extends Factory
             'genre' => fake()->name(),
             'synopsis' => fake()->text(),
             'user_rating' => fake()->randomDigitNotNull(),
-            'network' => fake()->name(),
             'creator' => fake()->name(),
             'seasons' => fake()->randomDigitNotNull(),
             'src' => fake()->text(),

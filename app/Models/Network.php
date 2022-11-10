@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Network extends Model
 {
     use HasFactory;
+
+
+
+    public function shows (
+    )
+    {
+        return $this->hasMany(Show::class);
+    }
 }

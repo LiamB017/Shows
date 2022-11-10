@@ -14,6 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('shows', function (Blueprint $table) {
+            $table->unsignedBigInteger('network_id');
+            $table->foreign('network_id')->references('id')->on('networks')->onUpdate('cascade')->onDelete('restrict');
             //
         });
     }
@@ -26,6 +28,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('shows', function (Blueprint $table) {
+
+
+            $table->dropForeign(['network_id']);
+            $table->dropColumn('network_id');
             //
         });
     }

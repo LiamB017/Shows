@@ -21,7 +21,6 @@ class ShowResource extends JsonResource
         'genre'=>$this->genre,
         'synopsis'=>$this->synopsis,
         'user_rating'=>$this->user_rating,
-        'network'=>$this->network,
         'creator'=>$this->creator,
         'seasons'=>$this->seasons,
         'src'=>$this->src

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('genre')->default('drama');
             $table->string('synopsis')->default('MIMIMI');
             $table->integer('user_rating')->default('5');
-            $table->string('network')->default('HBO');
             $table->string('creator')->default('David Simon');
             $table->integer('seasons')->default('1');
             $table->string('src')->default('blah');
