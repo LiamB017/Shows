@@ -23,7 +23,10 @@ class ShowResource extends JsonResource
         'user_rating'=>$this->user_rating,
         'creator'=>$this->creator,
         'seasons'=>$this->seasons,
-        'src'=>$this->src
+        'src'=>$this->src,
+        'network_id'=>$this->network_id,
+        'network_name'=>$this->network_name,
+        'network_address'=>$this->network_address
 
 
         

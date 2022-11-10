@@ -41,7 +41,7 @@ class ShowController extends Controller
     {
         // $shows = Show::all();
         
-        return new ShowCollection(Show::all());
+        return new ShowCollection(Show::with('network')->get());
     }
 
 // Allows for creation of a new Show using Swagger
@@ -99,6 +99,7 @@ class ShowController extends Controller
             'creator',
             'seasons',
             'src',
+            'network_id' 
             
         ]));
 
@@ -205,7 +206,8 @@ class ShowController extends Controller
             'network' ,
             'creator',
             'seasons',
-            'src'
+            'src',
+            'network_id'
         ]));
      
         return new ShowResource($show);

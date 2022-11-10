@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\NetworkController;
 use App\Http\Controllers\ServiceController;
 
 /*
@@ -23,6 +24,9 @@ use App\Http\Controllers\ServiceController;
 
 // This line creates all the routes for the show controller
 Route::apiResource('/shows', ShowController::class);
+
+// This line creates all the routes for the network controller
+Route::apiResource('/networks', NetworkController::class);
 
 // This line specifies and creates which routes are used for the service controller
 Route::resource('/services', ServiceController::class)->only(['index','show']);

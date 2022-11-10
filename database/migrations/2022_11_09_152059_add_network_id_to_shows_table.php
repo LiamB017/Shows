@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('shows', function (Blueprint $table) {
             $table->unsignedBigInteger('network_id');
-            $table->foreign('network_id')->references('id')->on('networks')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('network_id')->references('id')->on('networks')->onUpdate('cascade')->onDelete('cascade');
             //
         });
     }
