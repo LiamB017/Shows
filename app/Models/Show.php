@@ -20,6 +20,12 @@ public function network()
     return $this->belongsTo(Network::class);
 }
 
+public function actor()
+
+{
+    return $this->belongstoMany(Actor::class)->withTimestamps();
+}
+
 }
 
 

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Actor;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Network extends Model
 {
@@ -15,5 +16,6 @@ class Network extends Model
     )
     {
         return $this->hasMany(Show::class);
+        return $this->hasMany(Actor::class);
     }
 }
