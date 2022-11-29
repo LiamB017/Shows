@@ -11,6 +11,7 @@ use App\Http\Resources\ShowCollection;
 // Swagger annotations are included in this ShowController which generates the API Documentation at 
 
 
+
 class ShowController extends Controller
 {
     /**
@@ -51,7 +52,7 @@ class ShowController extends Controller
      * 
      * @OA\Post(
      *      path="/api/shows",
-     *      operationId="service",
+     *      operationId="store",
      *      tags={"Shows"},
      *      summary="Create a new Show",
      *      description="Stores the Show in the Database",
@@ -145,9 +146,7 @@ class ShowController extends Controller
         return new ShowResource($show);
     }
 
-   // Allows swagger to update a specific show
-
-    /**
+   /**
      * Update the specified show resource in storage.
       *
      *
@@ -170,15 +169,15 @@ class ShowController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *           // The required values must be entered into the body
-     *            required={"id", "title", "genre", "synopsis", "user_rating", "network", "creator", "seasons", "src"},
+     *            required={"id", "title", "genre", "synopsis", "user_rating", "creator", "seasons", "src"},
      *             @OA\Property(property="title", type="string", format="string", example="Sample Title"),
      *            @OA\Property(property="genre", type="string", format="string", example="Sample Genre"),
      *            @OA\Property(property="synopsis", type="string", format="string", example="A long description about this great show"),
      *            @OA\Property(property="user_rating", type="integer", format="string", example="2"),
-     *             @OA\Property(property="network", type="string", format="integer", example="examplenetwork"),
      *              @OA\Property(property="creator", type="string", format="string", example="Me"),
      *             @OA\Property(property="seasons", type="integer", format="integer", example="1"),
      *              @OA\Property(property="src", type="string", format="string", example="blah")
+     *              
      *          )
      *      ),
      *     @OA\Response(
@@ -203,7 +202,6 @@ class ShowController extends Controller
             'genre',
             'synopsis',
             'user_rating',
-            'network' ,
             'creator',
             'seasons',
             'src',

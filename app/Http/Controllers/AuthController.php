@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+
+
 class AuthController extends Controller
 {
     // name, email and password should be passed in as part of the request
