@@ -7,6 +7,8 @@ use App\Http\Resources\ActorResource;
 use App\Http\Resources\ActorCollection;
 use App\Http\Requests\StoreActorRequest;
 use App\Http\Requests\UpdateActorRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 
 class ActorController extends Controller
@@ -174,6 +176,8 @@ class ActorController extends Controller
     public function update(UpdateActorRequest $request, Actor $actor)
     {
           $actor->update($request->all());
+        
+          
     }
 
     //DELETE
@@ -212,5 +216,6 @@ class ActorController extends Controller
     public function destroy(Actor $actor)
     {
         $actor->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }

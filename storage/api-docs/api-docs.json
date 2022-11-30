@@ -23,6 +23,221 @@
                 }
             }
         },
+        "/api/actors": {
+            "get": {
+                "tags": [
+                    "Actors"
+                ],
+                "summary": "Display a listing of the actor resource in swagger API documentation.",
+                "description": "Displays all the networks",
+                "operationId": "1b42dd549ba84c0418e48debd8f07205",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation, Returns a list of Networks in JSON format"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Actors"
+                ],
+                "summary": "Create a new Actor",
+                "description": "Stores the Actor in the Database",
+                "operationId": "post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "age"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample name"
+                                    },
+                                    "age": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "32"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/actors/{id}": {
+            "get": {
+                "tags": [
+                    "Actors"
+                ],
+                "summary": "Display the specified actor resource.",
+                "description": "Gets an Actor by ID",
+                "operationId": "e842b8aa9dfb39ad89777fa261b6458a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Actor id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Actors"
+                ],
+                "summary": "Update an Actor",
+                "description": "Stores the updated Actor in the DB",
+                "operationId": "actors_put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Actor id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "name",
+                                    "age"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample name"
+                                    },
+                                    "age": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "23"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Actors"
+                ],
+                "summary": "Delete an Actor",
+                "description": "Delete an Actor By ID",
+                "operationId": "actor_destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of an Actor",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "204"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/networks": {
             "get": {
                 "tags": [
@@ -512,6 +727,215 @@
                                         }
                                     },
                                     "type": "object"
+                                },
+                                  "/api/networks": {
+            "get": {
+                "tags": [
+                    "Networks"
+                ],
+                "summary": "Display a listing of the network resource in swagger API documentation.",
+                "description": "Displays all the networks",
+                "operationId": "1b42dd549ba84c0418e48debd8f07205",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation, Returns a list of Networks in JSON format"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Networks"
+                ],
+                "summary": "Create a new Network",
+                "description": "Stores the Network in the Database",
+                "operationId": "post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample name"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample address"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/networks/{id}": {
+            "get": {
+                "tags": [
+                    "Networks"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "Gets a network by ID",
+                "operationId": "e842b8aa9dfb39ad89777fa261b6458a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Network id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Networks"
+                ],
+                "summary": "Update a Network",
+                "description": "Stores the updated Network in the DB",
+                "operationId": "networks_put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Store id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "name",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample name"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sample address"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Networks"
+                ],
+                "summary": "Delete a Network",
+                "description": "Delete a Network By ID",
+                "operationId": "network_destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of a Network",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "204"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }
@@ -519,5 +943,14 @@
                 }
             }
         }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        
     }
 }

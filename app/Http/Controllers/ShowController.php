@@ -42,7 +42,9 @@ class ShowController extends Controller
     {
         // $shows = Show::all();
         
-        return new ShowCollection(Show::with('network')->get());
+        return new ShowCollection(Show::with('network')
+        ->with('actor')
+        ->get());
     }
 
 // Allows for creation of a new Show using Swagger
@@ -103,6 +105,8 @@ class ShowController extends Controller
             'network_id' 
             
         ]));
+
+        $show->actor()->attach($request->actors);
 
         return new ShowResource($show);
     }
@@ -197,18 +201,10 @@ class ShowController extends Controller
     {
         //
         // Update the specified show 
-        $show->update($request->only([
-            'title',
-            'genre',
-            'synopsis',
-            'user_rating',
-            'creator',
-            'seasons',
-            'src',
-            'network_id'
-        ]));
+        $show->update($request->all());
+          
      
-        return new ShowResource($show);
+     
     }
 
 
