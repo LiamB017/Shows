@@ -31,7 +31,9 @@ class StoreShowRequest extends FormRequest
             'creator' => ['required'],
             'seasons' => ['required'],
             'src' => ['required'],
-            'network_id' => ['required'],
+                  // The "exists" validation function checks if the networks and actors sent in the request exist in the database,
+                // in the networks and actors tables respectively
+            'network_id' => ['required', 'exists:networks,id'],
             'actors' =>['required', 'exists:actors,id']
         ];
     }
