@@ -170,7 +170,7 @@ class NetworkController extends Controller
      *     )
      * )
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdateShowRequest  $request
      * @return \Illuminate\Http\NetworkResource
      */
     public function update(UpdateNetworkRequest $request, Network $network)

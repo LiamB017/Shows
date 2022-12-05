@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Show;
-use Illuminate\Http\Request;
+
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
+
+
+use App\Http\Requests\UpdateShowRequest;
+use App\Http\Requests\StoreShowRequest;
 use App\Http\Resources\ShowResource;
 use App\Http\Resources\ShowCollection;
 
@@ -84,27 +90,27 @@ class ShowController extends Controller
      *
 
 
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\StoreShowRequest  $request
+     * @return \Illuminate\Http\ShowResource
      */
 
-    public function store(Request $request)
+    public function store(StoreShowRequest $request)
     {
 
 // Store created new show 
-        $show = Show::create($request->only([
+        $show = Show::create([
 
-            'title',
-            'genre',
-            'synopsis',
-            'user_rating',
-            'network' ,
-            'creator',
-            'seasons',
-            'src',
-            'network_id' 
+            'title' => $request->title,
+            'genre'=> $request->genre,
+            'synopsis'=> $request->synopsis,
+            'user_rating'=> $request->user_rating,
+            'network' => $request->network,
+            'creator'=> $request->creator,
+            'seasons'=> $request->seasons,
+            'src'=> $request->src,
+            'network_id'=> $request->network_id,
             
-        ]));
+        ]);
 
         $show->actor()->attach($request->actors);
 
@@ -193,18 +199,17 @@ class ShowController extends Controller
      *     )
      * )
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Show  $show
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\UpdateShowRequest  $request
+     * @return \Illuminate\Http\ShowResource
      */
-    public function update(Request $request, Show $show)
+    public function update(UpdateShowRequest $request, Show $show)
     {
         //
         // Update the specified show 
         $show->update($request->all());
-          
+      
      
-     
+        return new ShowResource($show);
     }
 
 
