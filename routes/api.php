@@ -49,6 +49,9 @@ Route::middleware('auth:sanctum')->group(function (){
 
     // You need to be logged in for all book functionality except get all and get by id
     Route::apiResource('/shows', ShowController::class)->except((['index', 'show']));
+    Route::apiResource('/networks', NetworkController::class)->except((['index', 'show']));
+    Route::apiResource('/actors', ActorController::class)->except((['index', 'show']));
+
 });
 
 // Shows - Define the get all and get by ID routes outside the authentication group

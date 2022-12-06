@@ -10,6 +10,8 @@ class Actor extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'age'];
+
     public function shows()
     {
         return $this->belongstoMany(Show::class)->withTimestamps();

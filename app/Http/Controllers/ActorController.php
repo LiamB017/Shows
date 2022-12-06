@@ -177,7 +177,7 @@ class ActorController extends Controller
     {
           $actor->update($request->all());
         
-          
+          return new ActorResource($actor);
     }
 
     //DELETE

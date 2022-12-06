@@ -177,6 +177,9 @@ class NetworkController extends Controller
     {
         //
         $network->update($request->all());
+
+        return new NetworkResource($network);
+
     }
 
      //DELETE
@@ -214,5 +217,7 @@ class NetworkController extends Controller
     public function destroy(Network $network)
     {
         $network->delete();
+
+        return(" $network Deleted");
     }
 }
