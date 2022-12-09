@@ -21,6 +21,7 @@ class ActorController extends Controller
  *     path="/api/actors",
  *     description="Displays all the actors",
  *     tags={"Actors"},
+ *     
      *      @OA\Response(
         *          response=200,
         *          description="Successful operation, Returns a list of Actors in JSON format"
@@ -52,11 +53,11 @@ class ActorController extends Controller
      * Store a newly created show resource in storage.
      * 
      * @OA\Post(
-     *      path="/api/networks",
+     *      path="/api/actors",
      *      operationId="post",
-     *      tags={"Networks"},
-     *      summary="Create a new Network",
-     *      description="Stores the Network in the Database",
+     *      tags={"Actors"},
+     *      summary="Create a new Actor",
+     *      description="Stores the Actor in the Database",
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -192,6 +193,7 @@ class ActorController extends Controller
      *    operationId="actor_destroy",
      *    tags={"Actor"},
      *    summary="Delete a Actor",
+     *     security={{"bearerAuth":{}}}, 
      *    description="Delete an Actor By ID",
      *    @OA\Parameter(name="id", in="path", description="Id of a Actor", required=true,
      *        @OA\Schema(type="integer")

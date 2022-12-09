@@ -17,7 +17,7 @@ class StoreShowRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * This validation checks that the user has entered all required fields when the store function is called 
      *
      * @return array<string, mixed>
      */

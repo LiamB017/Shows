@@ -16,6 +16,6 @@ class Network extends Model
     )
     {
         return $this->hasMany(Show::class);
-        return $this->hasMany(Actor::class);
+    
     }
 }

@@ -37,7 +37,7 @@ class UpdateShowRequest extends FormRequest
                 // The "exists" validation function checks if the networks and actors sent in the request exist in the database,
                 // in the networks and actors tables respectively
                 'network_id' => ['required', 'exists:networks,id'],
-                'actors' =>['required', 'exists:actors,id']
+              
                
             ];
         }
@@ -53,8 +53,9 @@ class UpdateShowRequest extends FormRequest
             'creator' => ['sometimes','required'],
             'seasons' => ['sometimes','required'],
             'src' => ['sometimes','required'],
-            'network_id' => ['required', 'exists:networks,id'],
-            'actors' =>['required', 'exists:actors,id']
+            'network_id' => ['required', 'exists:networks,id']
+           
+           
         ];
     }
 }

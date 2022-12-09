@@ -13,7 +13,7 @@ class Show extends Model
     use HasFactory;
 
 // Fillable property is needed as eloquent models are protected against mass assignment vulnerabilities by default
-    protected $fillable = ['title','genre','synopsis','user_rating','creator','seasons','src','network_id'];
+    protected $fillable = ['title','genre','synopsis','user_rating','creator','seasons','src','network_id',"actors"];
 
 public function network()
 {

@@ -51,6 +51,7 @@ class ShowController extends Controller
         return new ShowCollection(Show::with('network')
         ->with('actor')
         ->get());
+      
     }
 
 // Allows for creation of a new Show using Swagger
@@ -166,7 +167,6 @@ class ShowController extends Controller
      *    tags={"Shows"},
      *    summary="Update a Show",
      *    description="Update Show",
-     *    // id is required to specify which show is to be updated 
      *    @OA\Parameter(
         *          name="id",
         *          description="Show id",
@@ -178,11 +178,12 @@ class ShowController extends Controller
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *           // The required values must be entered into the body
-     *            required={"id", "title", "genre", "synopsis", "user_rating", "creator", "seasons", "src"},
+    
+     *            required={"id", "title", "genre", "synopsis", "network", "user_rating", "creator", "seasons", "src"},
      *             @OA\Property(property="title", type="string", format="string", example="Sample Title"),
      *            @OA\Property(property="genre", type="string", format="string", example="Sample Genre"),
      *            @OA\Property(property="synopsis", type="string", format="string", example="A long description about this great show"),
+     *             @OA\Property(property="network", type="string", format="integer", example="examplenetwork"),
      *            @OA\Property(property="user_rating", type="integer", format="string", example="2"),
      *              @OA\Property(property="creator", type="string", format="string", example="Me"),
      *             @OA\Property(property="seasons", type="integer", format="integer", example="1"),
@@ -202,6 +203,7 @@ class ShowController extends Controller
      * @param  \Illuminate\Http\UpdateShowRequest  $request
      * @return \Illuminate\Http\ShowResource
      */
+
     public function update(UpdateShowRequest $request, Show $show)
     {
         //

@@ -30,8 +30,8 @@ class ShowResource extends JsonResource
         'seasons'=>$this->seasons,
         'src'=>$this->src,
         'network_id'=>$this->network_id,
-        'network_name'=>$this->network_name,
-        'network_address'=>$this->network_address,
+        'network_name'=>$this->network->name,
+        'network_address'=>$this->network->address,
         'actors' => $actors
 
 
